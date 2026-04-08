@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eddy Zou</title>
+    <meta name="description" content="Eddy (Weijian) Zou – PhD Student at LSE. Research on climate adaptation, energy transition, and economics of organisations.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..900;1,8..60,300..900&family=Source+Sans+3:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a4a4a;
+            --text-muted: #6b6b6b;
+            --accent: #2b5797;
+            --accent-hover: #1e3f6f;
+            --bg: #ffffff;
+            --bg-alt: #f8f8f8;
+            --border: #d4d4d4;
+            --border-light: #e8e8e8;
+            --link: #2b5797;
+            --link-hover: #1e3f6f;
+            --serif: 'Source Serif 4', 'Georgia', serif;
+            --sans: 'Source Sans 3', 'Helvetica Neue', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--sans);
+            color: var(--text-primary);
+            background: var(--bg);
+            line-height: 1.65;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Header ── */
+        header {
+            background: var(--bg);
+            border-bottom: 1px solid var(--border-light);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-family: var(--serif);
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        header h1 a {
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        header h1 a:hover {
+            color: var(--accent);
+        }
+
+        /* ── Container ── */
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ── Profile section ── */
+        .profile {
+            display: flex;
+            gap: 2.5rem;
+            padding: 2.5rem 0 2rem;
+            align-items: flex-start;
+        }
+
+        .profile-photo {
+            flex-shrink: 0;
+        }
+
+        .profile-photo img {
+            width: 180px;
+            height: 180px;
+            border-radius: 6px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .profile-info h2 {
+            font-family: var(--serif);
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 0.15rem;
+            letter-spacing: -0.02em;
+        }
+
+        .profile-links {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin: 0.75rem 0 0.6rem;
+            font-size: 0.95rem;
+        }
+
+        .profile-links a {
+            color: var(--link);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .profile-links a:hover {
+            color: var(--link-hover);
+            text-decoration: underline;
+        }
+
+        .profile-links .sep {
+            color: var(--text-muted);
+            margin: 0 0.15rem;
+        }
+
+        .profile-links svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+        }
+
+        .social-row {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.4rem;
+        }
+
+        .social-row a {
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .social-row a:hover {
+            text-decoration: underline;
+        }
+
+        /* ── Divider ── */
+        hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 1.5rem 0;
+        }
+
+        /* ── Jump-to nav ── */
+        .jump-nav {
+            font-size: 0.92rem;
+            margin-bottom: 0.2rem;
+            color: var(--text-muted);
+        }
+
+        .jump-nav span {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .jump-nav ul {
+            display: inline;
+            list-style: none;
+            padding: 0;
+        }
+
+        .jump-nav ul li {
+            display: inline;
+        }
+
+        .jump-nav ul li + li::before {
+            content: " · ";
+            color: var(--text-muted);
+        }
+
+        .jump-nav a {
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .jump-nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* ── Bio ── */
+        .bio {
+            font-size: 1.02rem;
+            line-height: 1.7;
+            color: var(--text-primary);
+        }
+
+        .bio a {
+            color: var(--link);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .bio a:hover {
+            text-decoration: underline;
+        }
+
+        /* ── Sections ── */
+        .section {
+            padding: 1.5rem 0 0.5rem;
+        }
+
+        .section-title {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid var(--text-primary);
+            letter-spacing: -0.01em;
+        }
+
+        /* ── Paper entries ── */
+        .paper {
+            margin-bottom: 1.8rem;
+        }
+
+        .paper-title {
+            font-weight: 600;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: var(--text-primary);
+            margin-bottom: 0.2rem;
+        }
+
+        .paper-title a {
+            color: var(--link);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .paper-title a:hover {
+            text-decoration: underline;
+        }
+
+        .paper-links {
+            display: inline;
+        }
+
+        .paper-links a {
+            color: var(--link);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.92rem;
+        }
+
+        .paper-links a:hover {
+            text-decoration: underline;
+        }
+
+        .paper-links a::before {
+            content: "[";
+        }
+
+        .paper-links a::after {
+            content: "]";
+        }
+
+        .paper-meta {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 0.3rem;
+            line-height: 1.6;
+        }
+
+        .paper-meta a {
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .paper-meta a:hover {
+            text-decoration: underline;
+        }
+
+        .paper-meta ul {
+            list-style: disc;
+            padding-left: 1.3rem;
+            margin-top: 0.2rem;
+        }
+
+        .paper-meta ul li {
+            margin-bottom: 0.15rem;
+        }
+
+        .paper-abstract {
+            margin-top: 0.5rem;
+        }
+
+        .paper-abstract summary {
+            cursor: pointer;
+            color: var(--link);
+            font-size: 0.9rem;
+            font-weight: 500;
+            user-select: none;
+        }
+
+        .paper-abstract summary:hover {
+            text-decoration: underline;
+        }
+
+        .paper-abstract .abstract-text {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            padding-left: 0.5rem;
+            border-left: 3px solid var(--border-light);
+        }
+
+        .coauthors {
+            font-size: 0.93rem;
+            color: var(--text-secondary);
+        }
+
+        .coauthors a {
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .coauthors a:hover {
+            text-decoration: underline;
+        }
+
+        .funding-tag {
+            display: inline-block;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            background: var(--bg-alt);
+            border: 1px solid var(--border-light);
+            padding: 0.1rem 0.5rem;
+            border-radius: 3px;
+            margin-top: 0.25rem;
+        }
+
+        /* ── Footer ── */
+        footer {
+            margin-top: 3rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid var(--border-light);
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 640px) {
+            .profile {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 1.2rem;
+            }
+
+            .profile-photo img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .profile-links {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .social-row {
+                text-align: center;
+            }
+
+            .jump-nav {
+                text-align: center;
+            }
+
+            .section-title {
+                font-size: 1.15rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════ HEADER ═══════ -->
+<header>
+    <div class="container">
+        <h1><a href="/">Eddy Zou</a></h1>
+    </div>
+</header>
+
+<main class="container">
+
+    <!-- ═══════ PROFILE ═══════ -->
+    <div class="profile">
+        <div class="profile-photo">
+            <!-- Replace with your actual photo path -->
+            <img src="images/eddy_zou.jpeg" alt="Photo of Eddy Zou">
+        </div>
+        <div class="profile-info">
+            <h2>Eddy (Weijian) Zou</h2>
+
+            <div class="profile-links">
+                <a href="docs/CV.pdf">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    CV
+                </a>
+                <span class="sep">•</span>
+                <a href="mailto:w.zou2@lse.ac.uk">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    Email
+                </a>
+                <span class="sep">•</span>
+                <a href="https://scholar.google.com/" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+                    Scholar
+                </a>
+            </div>
+
+            <div class="social-row">
+                Social: <a href="https://twitter.com/" target="_blank" rel="noopener">Twitter (X)</a>
+                · <a href="https://bsky.app/" target="_blank" rel="noopener">Bluesky</a>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- ═══════ JUMP NAV ═══════ -->
+    <nav class="jump-nav">
+        <span>Jump to:</span>
+        <ul>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#working-papers">Working papers</a></li>
+            <li><a href="#works-in-progress">Work in progress</a></li>
+            <li><a href="#pre-doctoral">Pre-doctoral work</a></li>
+        </ul>
+    </nav>
+
+    <!-- ═══════ BIO ═══════ -->
+    <div class="bio">
+        <p>
+            I am a PhD Student at the <strong><a href="https://www.lse.ac.uk/economics" target="_blank" rel="noopener">London School of Economics and Political Science (LSE)</a></strong> and a Research Scholar at the <strong><a href="https://ifs.org.uk/" target="_blank" rel="noopener">Institute for Fiscal Studies (IFS)</a></strong>.
+        </p>
+        <p style="margin-top: 0.6rem;">
+            I work on questions related to <strong>climate adaptation</strong>, <strong>energy transition</strong>, and <strong>economics of organisations</strong>.
+        </p>
+        <p style="margin-top: 0.6rem;">
+            From September 2022 to August 2023, I was a Research Economist at the IFS.
+        </p>
+    </div>
+
+    <hr>
+
+    <!-- ═══════ PUBLICATIONS ═══════ -->
+    <section class="section" id="publications">
+        <h3 class="section-title">Publications</h3>
+
+        <div class="paper">
+            <div class="paper-title">
+                Dynamic Effects of Health on Employment among Older Workers
+            </div>
+            <div class="coauthors">(with Richard Blundell, Jack Britton, Monica Costa Dias, and Eric French)</div>
+            <div class="paper-meta">
+                Accepted at <em>Journal of Economics of Aging</em>
+            </div>
+            <div class="paper-meta">
+                <ul>
+                    <li>Institute for Fiscal Studies Working Paper <a href="https://ifs.org.uk/publications/dynamic-effects-health-employment-older-workers-impacts-gender-country-and-race" target="_blank" rel="noopener">[WP]</a></li>
+                    <li>Michigan Retirement Centre Working Paper <a href="https://mrdrc.isr.umich.edu/pubs/the-dynamic-effects-of-health-on-the-employment-of-older-workers-impacts-by-gender-country-and-race/" target="_blank" rel="noopener">[WP]</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-title">
+                Is a UK Government commitment to the Sustainable Development Goals good for the economy and business in general?
+            </div>
+            <div class="coauthors">(with Brooklyn Han, Sally Yang, and Patrick Leitloff) <a href="https://www.brownjppe.com/vol3-issue-2/brooklyn-han%2C-patrick-leitloff%2C-sally-yang%2C-eddy-zou" target="_blank" rel="noopener">[pdf]</a></div>
+            <div class="paper-meta">
+                <em>Brown University Journal of Philosophy, Politics, and Economics</em>, 2022, vol. 3 Issue 2
+            </div>
+            <div class="paper-meta">
+                <ul>
+                    <li><a href="https://www.ons.gov.uk/aboutus/whatwedo/programmesandprojects/economicstatisticstransformation/theonsrenaissanceprize" target="_blank" rel="noopener">2020 UK Office for National Statistics (ONS) Renaissance Prize</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ WORKING PAPERS ═══════ -->
+    <section class="section" id="working-papers">
+        <h3 class="section-title">Working Papers</h3>
+
+        <div class="paper">
+            <div class="paper-title">
+                Police Organisation and Police Performance
+            </div>
+            <div class="coauthors">(with Elisa Facchetti and Arianna Ornaghi) [draft available upon request]</div>
+            <div class="paper-meta">
+                <ul>
+                    <li>Awarded EIEF Research Grant (2024)</li>
+                    <li>Presentations: 2025 Bocconi Firm Behaviour in Rough Environment Workshop, 2025 Bank of Italy EPSI Conference, 2026 Chicago &amp; LSE Economics of Crime Conference, 2026 SIOE Conference</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-title">
+                The Lifecycle of Judicial Bias
+            </div>
+            <div class="coauthors">(with <a href="https://sites.google.com/view/omryoresh/home" target="_blank" rel="noopener">Omry Yoresh</a>) [Submitted]</div>
+            <details class="paper-abstract">
+                <summary>Abstract</summary>
+                <div class="abstract-text">
+                    How does judicial bias arise and persist in the legal system? We trace the lifecycle of judicial bias in India's criminal courts, leveraging the quasi-random assignment of judges to courts and cases. We first document substantial variation in bias: within the same court, assigning a same-religion defendant from a judge at the 25th to 75th percentile of bias increases acquittal probability by 7.5 percentage points, 45% of the mean acquittal rate. We then examine how different triggers across a judge's professional career affect their bias. Exposure to Hindu-Muslim communal riots during a judge's first five years of service leads them to increase same-religion acquittal rates by 17.5%. Yet, judges who work alongside colleagues from different religions during this critical period show no such effect. Next, social interactions between judges reinforce judicial bias. On-the-job exposure to biased colleagues leads judges to increase same-religion acquittal rates by 3.2 percentage points, with effects that persist for over a year. These findings suggest that judicial bias is neither innate nor inevitable, but rather shaped by experiences and relationships, and that thoughtful institutional design can prevent and mitigate discriminatory practices across various professions.
+                </div>
+            </details>
+            <div class="paper-meta">
+                <ul>
+                    <li>Presentations: Charles University 2025, Freiburg PhD-Workshop on the Economics of Criminal Behavior 2025</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-title">
+                Hungry Clouds: Environmental Externalities of Data-Intensive Development
+            </div>
+            <div class="paper-meta">
+                <ul>
+                    <li>Funding: LSE STICERD Grant, Private Enterprise Development in Low-Income Countries (PEDL) Exploratory Research Grant</li>
+                    <li>Presentations: 2025 LSE Energy Markets Mini-Conference</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-title">
+                Energy Transition in Low- and Middle-Income Countries
+                <span style="color: var(--text-muted); font-weight: 400; font-size: 0.9rem;">[draft coming soon]</span>
+            </div>
+            <div class="paper-meta">
+                In preparation for the <em>Oxford Research Encyclopaedia of Economics and Finance</em>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-title">
+                Public WASH Programs, Long-Run Child Development, and Intergenerational Mobility in China
+            </div>
+            <div class="coauthors">(with Dongqin Wang)</div>
+            <div class="paper-meta">
+                <ul>
+                    <li><a href="https://events.development.asia/learning-events/winners-2024-adb-iea-innovative-policy-research-award" target="_blank" rel="noopener">Winning Paper, 2024 Asian Development Bank-IEA Innovative Research Award</a></li>
+                    <li>Asian Development Institute WP: ADBI WP 1396 <a href="https://www.adb.org/sites/default/files/publication/891511/adbi-wp1396.pdf" target="_blank" rel="noopener">[WP]</a></li>
+                    <li>Presentations: 2024 Japanese Association for Development Economist Conference, 2023 Asian Development Bank Conference, Applied Young Economist Webinar, Hong Kong Economics Association Annual Meeting, WASH Econ Conference, Singapore Meeting of Econometric Society (Declined)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ WORK IN PROGRESS ═══════ -->
+    <section class="section" id="works-in-progress">
+        <h3 class="section-title">Selected Work in Progress</h3>
+
+        <div class="paper">
+            <div class="paper-title">
+                Heat Insurance at Work
+            </div>
+            <div class="coauthors">(with Amen Jalal, Pol Simpson, Ashley Pople) [Intervention in Progress]</div>
+            <div class="paper-meta">
+                <ul>
+                    <li>Funding: <a href="https://www.povertyactionlab.org/initiative-project/insuring-against-extreme-heat-randomised-evaluation" target="_blank" rel="noopener">J-PAL King Climate Action Initiative</a>, <a href="https://www.theigc.org/collections/insurance-against-extreme-heat-randomised-evaluation" target="_blank" rel="noopener">International Growth Centre</a>, Weiss Fund in Development Economics</li>
+                    <li>AEA RCT ID: AEARCTR-0015728</li>
+                </ul>
+            </div>
+            <details class="paper-abstract">
+                <summary>Abstract</summary>
+                <div class="abstract-text">
+                    Heatwaves, intensified by climate change, hit the poorest the hardest. Many are exposed to dangerous temperatures through outdoor work or limited access to adaptive resources. In 2024, 37 cities in India surpassed 45°C (113°F), and around 40,000 heat stroke cases were reported. How can social protection systems evolve to address the growing losses caused by extreme heat? We evaluate an innovative intervention in India that offers automatic daily wage payments to low-income workers when temperatures exceed a predetermined threshold. Developed by the Self Employed Women's Association (SEWA) — a union representing over 3 million informal workers — the scheme is the world's first parametric heat insurance product targeting earnings loss. We use a randomized encouragement design, incentivizing SEWA officers to promote enrollment in 2,821 treatment villages, while 2,821 control villages receive no targeted outreach.
+                </div>
+            </details>
+        </div>
+
+        <div class="paper">
+            <div class="paper-title">
+                The Spatial Diffusion of Distributed Solar
+            </div>
+            <div class="coauthors">(with Qingyu Chen and Yifan Wang) [Slides available upon request]</div>
+            <div class="paper-meta">
+                <ul>
+                    <li>Funding: Private Enterprise Development in Low-Income Countries (PEDL) Exploratory Research Grants (2025, 2026)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-title">
+                Clearing the Air on Used Vehicles
+            </div>
+            <div class="coauthors">(with Yunyu Shu, Xinmei Yang) [Slides available upon request]</div>
+            <div class="paper-meta">
+                <ul>
+                    <li>Funding: International Growth Centre</li>
+                </ul>
+            </div>
+            <details class="paper-abstract">
+                <summary>Abstract</summary>
+                <div class="abstract-text">
+                    How does the presence of international trade in used durable goods, such as vehicles, affect the efficacy and relative welfare effects of unilateral policies to decarbonize transportation? This project combines a micro-founded structural model with novel data from multiple countries, to understand the effectiveness, potential economic costs, and environmental impacts, of restricting trade in used vehicles.
+                </div>
+            </details>
+        </div>
+
+        <div class="paper">
+            <div class="paper-title">
+                The Geography of Development Programs
+            </div>
+            <div class="coauthors">(with Marta Morando and Beyza Gulmezoglu) [Slides available upon request]</div>
+        </div>
+    </section>
+
+    <!-- ═══════ PRE-DOCTORAL WORK ═══════ -->
+    <section class="section" id="pre-doctoral">
+        <h3 class="section-title">Pre-Doctoral Work</h3>
+
+        <div class="paper">
+            <div class="paper-title">
+                Resource Cursed? The Short- and Long-run Effects of Coal Mining on Human Capital Accumulation in Indonesia
+            </div>
+            <div class="coauthors">[in submission] <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4342574" target="_blank" rel="noopener">[SSRN]</a></div>
+            <div class="paper-meta">
+                <ul>
+                    <li>Best Performance in LSE Quantitative Thesis (EC331) in 2022</li>
+                    <li>Presentations: The 21st Carroll Round at Georgetown University (2022), University of Sydney SSEAC Emerging Scholars Conference (2022), 2023 University of Oxford CSAE Conference, 2023 Nordic Development Conference, 2023 German Development Conference</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-title">
+                Ethnic Earnings Gaps among University-Educated Men in England
+            </div>
+            <div class="coauthors">(with Ben Waltmann and Jack Britton)</div>
+            <div class="paper-meta">
+                <ul>
+                    <li>Presentations: 2023 Sheffield Work, Pensions and Labour Economics Conference, 2023 York Workshop on Labour and Family Economics</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-title">
+                Covid And The City: Intra-Hospital Transmission of Covid-19
+            </div>
+            <div class="coauthors">
+                (with Brooklyn Han, Stefanus Phan, and Callum Renton)
+                <a href="https://acrobat.adobe.com/link/track?uri=urn%3Aaaid%3Ascds%3AUS%3A84141abb-36e2-4c70-b006-d57509a93afc#pageNum=1" target="_blank" rel="noopener">[pdf]</a>
+                <a href="https://acrobat.adobe.com/link/track?uri=urn:aaid:scds:US:b96d0c8b-a59c-47c2-bf0f-3160bc04d2f9" target="_blank" rel="noopener">[Slides]</a>
+            </div>
+            <div class="paper-meta">
+                <ul>
+                    <li><a href="https://voices.uchicago.edu/oeconomica/metrics-game/" target="_blank" rel="noopener">Winner, University of Chicago Oeconomica Econometrics Game (2021)</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-title">
+                Can decentralisation be a force for bad? New evidence from environment clearances in India
+            </div>
+            <div class="coauthors">
+                (with Brooklyn Han, Visheshika Baheti, Chloe Chong, and Naomi Sanders)
+                <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3948673" target="_blank" rel="noopener">[SSRN]</a>
+            </div>
+            <div class="paper-meta">
+                <ul>
+                    <li>Presentations: LSE Interdisciplinary Student Research Conference (2021), University of Oxford MPhil Novel Ideas Seminar (2022)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer>
+    <div class="container">
+        &copy; 2026 Eddy Zou
+    </div>
+</footer>
+
+</body>
+</html>
